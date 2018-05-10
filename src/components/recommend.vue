@@ -1,5 +1,5 @@
 <template>
-    <div class="tuijian"> 
+    <div class="tuijian">
         <h4>更多推荐</h4>
         <dl v-for='(item, key) in commentData && commentData.list' :key='key' @click="comment">
             <dt><img :src="item.imgUrl || item.bgImg" alt=""></dt>

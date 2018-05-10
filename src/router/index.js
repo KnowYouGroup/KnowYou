@@ -24,8 +24,9 @@ export default [
         path: '/topic/:id',
         component: resolve => require(['../page/topic'], resolve)
       }, {
-        path: '/noques/:id',
-        component: resolve => require(['../page/detail/noques'], resolve)
+        path: '/detail/noques/:id',
+        component: resolve => require(['../page/detail/noques'], resolve),
+        meta: {auth: true}
       }, {
         path: '/login',
         component: resolve => require(['../page/login'], resolve)

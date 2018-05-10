@@ -11,7 +11,7 @@ import '@/config/rem.js'  // 移动端viewport设置
 import {cookie} from '@/config/mUtils'
 import axios from 'axios'
 Vue.prototype.$http = axios
-// 暂时屏蔽请求拦截
+// 暂时屏蔽请求拦截-------完全没有啥用
 axios.interceptors.response.use((res) => {
   console.log('res ===', res)
   let status = res.status
@@ -43,6 +43,7 @@ if ('addEventListener' in document) {
   }, false)
 }
 
+// 全局关闭console.log输出
 if (process.env.NODE_ENV !== 'development' && !/debug/i.test(window.location.search)) {
   window.console.log = function () {}
 }
@@ -53,7 +54,7 @@ const router = new VueRouter({
 })
 // 用户登录过滤器
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(m => m.meta.auth)) {
+  if (to.matched.some(m => m.meta.auth)) { // 需要授权的页面必须在登录状态下才能访问
     // if (store.getters.authorizd) { // 已经登陆
     if (cookie('uID') && cookie('pVersion') === '111609') {
       next()

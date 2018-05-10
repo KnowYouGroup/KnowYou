@@ -50,7 +50,7 @@ export default {
     this.uId = cookie('uID')
     console.log('this.uId', this.uId)
     this.detailId = this.$route.params.id
-    this.initData()
+    // this.initData() fql在跳转之前已经请求过了
   },
   methods: {
     ...mapActions(['getDetailRes']),

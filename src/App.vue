@@ -15,20 +15,22 @@ export default {
     }
   },
   mounted () {
+    // 未登录时，不是首页和登录页面，记住当前访问页面，以便登录后跳转回来
+    if (location.hash && location.hash !== '#/' && location.hash !== '#/login') {
+      cookie('LoginUrlReferrer', '#' + location.hash.split('#')[1], {expires: new Date(Date.parse(new Date()) + 1000 * 60 * 60)})
+    } else {
+      console.log('没有要访问页面的基本信息')
+    }
     if (cookie('uID')) { //  && cookie('pVersion') === 'a102601'
       this.getUserInfo() // 获取用户信息
     } else {
-      // 未登录时，不是首页和登录页面，记住当前访问页面，以便登录后跳转回来
-      if (location.hash && location.hash !== '#/' && location.hash !== '#/login') {
-        cookie('LoginUrlReferrer', '#' + location.hash.split('#')[1], {expires: new Date(Date.parse(new Date()) + 1000 * 60 * 60)})
-      }
       // 未登录访问首页，跳到登录页面
       this.$router.push('/login')
     }
   },
   methods: {
     getUserInfo () {
-      console.log('STATE: is login')
+      console.log('页面已经登录')
       this.$router.push('/login?logined=true')
     }
   }

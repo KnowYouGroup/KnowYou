@@ -24,12 +24,12 @@ export const createAndLoginThridUser = (type, uniqueId, questionCategoryId) => f
   data: {type, uniqueId, questionCategoryId}
 })
 
-// 获取问题分类 分享用
+// 获取问题分类------分享用
 export const getQuestionCategoryDetail = (questionCategoryId) => fetch('/socialWeb/web/getQuestionCategoryDetail', {
   data: {questionCategoryId}
 })
 
-// 获取问题分类详情
+// 获取问题分类详情----问题列表
 export const getInterestQuestionList = (questionCategoryId) => fetch('/socialWeb/web/getInterestQuestionList', {
   data: {questionCategoryId}
 })
@@ -39,17 +39,17 @@ export const commitInterestAnswer = (categoryId, answerIds) => fetch('/socialWeb
   data: {categoryId, answerIds}
 })
 
-// 获取问题测试结果
+// 获取问题测试结果----结果
 export const getInterestQuestionResult = (questionCategoryId, userId) => fetch('/socialWeb/web/getInterestQuestionResult', {
   data: {questionCategoryId, userId}
 })
 
-// 获取好友测试题结果列表
+// 获取好友测试题结果列表-----好友测试结果
 export const getFriendQuestionMatchResultList = (categoryQuestionId, type, lastUserId) => fetch('/socialWeb/web/getFriendQuestionMatchResultList', {
   data: {categoryQuestionId, type, lastUserId}
 })
 
-// 获取问题分类列表
+// 获取问题分类列表------更多同类测试与更多推荐
 export const getSameQuestionCategoryList = (categoryQuestionId) => fetch('/socialWeb/web/getSameQuestionCategoryList', {
   data: {categoryQuestionId}
 })
@@ -59,7 +59,7 @@ export const getSquareActivityTopicDetailH5 = (activityId) => fetch('/socialWeb/
   data: {activityId}
 })
 
-// 获取推荐分类列表
+// 获取推荐分类列表--------这个接口重复了
 export const getSortList = (categoryQuestionId) => fetch('/socialWeb/web/getSameQuestionCategoryList', {
   data: {categoryQuestionId}
 })
